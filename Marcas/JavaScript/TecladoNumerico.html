@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <style>
+        .botonDefault {
+            background-color: pink;
+            height: 100px;
+            width: 100px;
+            margin: 5px;
+            font-size: 70px;
+        }
+        .botonPares {
+            background-color: blue;
+            height: 100px;
+            width: 100px;
+            margin: 5px;
+            font-size: 70px;
+        }
+        .botonTriples {
+            background-color: orange;
+            height: 100px;
+            width: 100px;
+            margin: 5px;
+            font-size: 70px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Ejercicio 1 - Teclado numérico</h1>
+    <div id="contenedor">
+        <!-- Aquí es donde irá el teclado. -->
+    </div>
+
+    <script>
+        let contenedor = document.getElementById("contenedor");
+        contenedor.style.display = 'flex';
+        contenedor.style.flexWrap = "wrap";
+        contenedor.style.width = "361px"
+
+        let cant;
+        let done = false;
+
+        do {
+            cant = prompt("Cuántos números quieres poner? No puede ser mayor de 30");
+            if (cant === null) {
+                alert("Has cancelado la operación, no se mostrará ningún número");
+                done = true;
+            } else {
+                if (cant > 30) {
+                    alert("El número era mayor que 30, prueba otra vez");
+                } else {
+                    done = true;
+                }
+            }
+        } while (!done);
+
+        for (let i = 1; i <= cant; i++) {
+            let num = document.createElement("article");
+            let numContent = document.createTextNode(i);
+            if (i % 2 === 0) {
+                num.className = "botonPares";
+            } else if (i % 3 === 0) {
+                num.className = "botonTriples";
+            } else {
+                num.className = "botonDefault";
+            }
+            num.appendChild(numContent);
+            contenedor.appendChild(num);
+        }
+    </script>
+</body>
+</html>

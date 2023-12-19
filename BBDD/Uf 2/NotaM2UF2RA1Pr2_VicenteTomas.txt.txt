@@ -1,0 +1,8 @@
+Nota final -> 5,25
+
+Ej 1 -> 0,5
+Ej 2 -> 1,5
+Ej 3 -> 0,25 La sintaxis era bastante parecida pero me he confundido en algunos aspectos.
+Ej 4 -> 0,5 
+Ej 5 -> 1,25 La estructura cambia en algunas partes pero son similares y dan el mismo resultado.
+Ej 6 -> 1,25 La sintaxis es muy similar a diferentes ejemplos pero hay algunos puntos donde no son iguales del todo.

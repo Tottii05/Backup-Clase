@@ -1,0 +1,110 @@
+CREATE TABLE FITXA (
+    DNI NUMERIC,
+    NOM VARCHAR(30) NOT NULL,
+    COGNOMS VARCHAR(70) NOT NULL,
+    ADREÇA VARCHAR(60),
+    TELEFON VARCHAR(11),
+    PROVINCIA VARCHAR(30),
+    DATA_NAIX DATE default CURRENT_DATE,
+    CONSTRAINT PK_DNI PRIMARY KEY (DNI));
+
+    ALTER TABLE FITXA 
+    ADD CP VARCHAR(5);
+
+    DROP TABLE FITXA;
+
+/* Este rollback no funciona con la creación o eliminación de tablas */
+    ROLLBACK;
+
+/* Otra vez creo la tabla con el código de arriba */
+    ALTER TABLE FITXA ADD EQUIP VARCHAR(10);
+    ALTER TABLE FITXA ALTER COLUMN NOM DROP NOT NULL;
+    ALTER TABLE FITXA ALTER COLUMN EQUIP TYPE VARCHAR(10);
+    ALTER TABLE FITXA ALTER COLUMN TELEFON TYPE VARCHAR(12);
+
+    insert into FITXA (DNI, NOM, COGNOMS, ADREÇA, TELEFON, PROVINCIA, DATA_NAIX, EQUIP)
+    values ('3421232', NULL, 'ACEDO GÓMEZ', 'GUZMÁN EL BUENO 90','969-23-12-56', NULL, '1970-05-05', '1'),
+    ('4864868', 'BEATRIZ', 'SANCHO MANRIQUE', NULL, '93-232-12-12', 'BCN', '1978-07-06', '2');
+
+    BEGIN;
+
+    insert into FITXA (DNI, NOM, COGNOMS, ADREÇA, TELEFON, PROVINCIA, DATA_NAIX, EQUIP)
+    values
+    ('7868544', 'JONÁS', 'ALMENDROS RODRÍGUEZ FEDERICO', NULL, '915478947', 'MADRID', '01/01/1987', '3'),
+    ('8324216', 'PEDRO', 'MARTÍN HIGUERO', 'VIRGEN DEL CERRO, 154', '961522344', 'SORIA', '29/04/1978', '5');
+
+/* Hago un rollback para eliminar esta vez sí, los inserts de Jonas y Pedro */
+    ROLLBACK;
+
+    BEGIN;
+
+    insert into FITXA (DNI, NOM, COGNOMS, ADREÇA, TELEFON, PROVINCIA, DATA_NAIX, EQUIP)
+    values ('14948992', 'SANDRA', 'MARTÍN GONZÁLEZ', 'PABLO NERUDA, 15', '916581515', 'MADRID', '05/05/1970', '6');
+
+/* Este commit sirve para guardar las tablas de forma permanente después de usar un begin */
+    COMMIT;
+
+    BEGIN;
+
+    insert into FITXA (DNI, NOM, COGNOMS, ADREÇA, TELEFON, PROVINCIA, DATA_NAIX, EQUIP)
+    values
+    ('15756214', 'MIGUEL', 'CAMARGO ROMÁN', 'ARMADORES, 1', '949488588', NULL, '12/12/1985', '7');
+
+    SAVEPOINT intA;
+    COMMIT;
+
+    BEGIN;
+
+    insert into FITXA (DNI, NOM, COGNOMS, ADREÇA, TELEFON, PROVINCIA, DATA_NAIX, EQUIP)
+    values
+    ('21158230', 'SERGIO', 'ALFARO IBIRICU', 'AVENIDA DEL EJERCITO, 76', '934895855', 'BCN', '11/11/1987', '8'),
+    ('34225234', 'ALEJANDRO', 'ALCOCER JARABO', 'LEONOR DE CORTINAS, 7', '935321211', 'MADRID', '05/05/1970', '9');
+
+    SAVEPOINT intB;
+
+    insert into FITXA (DNI, NOM, COGNOMS, ADREÇA, TELEFON, PROVINCIA, DATA_NAIX, EQUIP)
+    values
+    ('38624852', 'ALVARO', 'RAMÍREZ AUDIGE', 'FUENCARRAL, 33', '912451168', 'MADRID', '10/09/1976', '10');
+
+    SAVEPOINT intC;
+
+    insert into FITXA (DNI, NOM, COGNOMS, ADREÇA, TELEFON, PROVINCIA, DATA_NAIX, EQUIP)
+    values
+    ('45824852', 'ROCÍO', 'PÉREZ DEL OLMO', 'CERVANTES, 22', '912332138', 'MADRID', '06/12/1987', '11'),
+    ('48488588', 'JESÚS', 'BOBADILLA SANCHO', 'GAZTAMBIQUE, 32', '913141111', 'MADRID', '05/05/1970', '13');
+
+    SAVEPOINT intD;
+
+    DELETE FROM FITXA WHERE DNI = '45824852';
+
+    SAVEPOINT intE;
+  
+    UPDATE FITXA SET EQUIP = '11' WHERE DNI = '48488588';
+
+    SAVEPOINT intF;
+
+/* Recupero mi información hasta la marca intE */
+    ROLLBACK TO intE;
+
+    ROLLBACK TO intD;
+
+    UPDATE FITXA SET EQUIP = '11' WHERE DNI = '38624852';
+
+    COMMIT;
+
+    BEGIN;
+
+    insert into FITXA (DNI, NOM, COGNOMS, ADREÇA, TELEFON, PROVINCIA, DATA_NAIX, EQUIP)
+    values
+    ('98987765', 'PEDRO', 'RUIZ RUIZ', 'SOL, 43', '91-656-43-32', 'MADRID', '10/09/1976', '12');
+ 
+ /* Cierro sesión sin guardar, por lo tanto se pierde todos los cambios */
+    \q
+
+    BEGIN;
+
+    insert into FITXA (DNI, NOM, COGNOMS, ADREÇA, TELEFON, PROVINCIA, DATA_NAIX, EQUIP)
+    values
+    ('98987765', 'PEDRO', 'RUIZ RUIZ', 'SOL, 43', '91-656-43-32', 'MADRID', '10/09/1976', '12');
+
+    COMMIT;

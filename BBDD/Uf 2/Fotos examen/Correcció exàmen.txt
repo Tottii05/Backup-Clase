@@ -1,0 +1,78 @@
+Exercici 1 (0,25 punts)
+Mostra l'identificador del fabricant, el producte i la descripció:
+- Todo bien
+
+Exercici 2 (0,25 punts)
+Mostra l'identificador del venedor, el nom i l'edat i l'identificador d'oficina dels venedors que tenen una oficina
+assignada i siguin menors de 45 anys.
+- Todo bien
+
+Exercici 3 (0,15 punts)
+Mostra l'identificador, la ciutat i el director de les oficines que no estiguin dirigides pel venedor 108.
+El resultat mostra 3 files
+- Sintaxis perfecta pero confusión con el nombre del álias
+
+Exercici 4 (0 punts)
+Mostra el número, la data de la comanda i l'identificador del fabricant dels fabricants amb identificador 'bic' o
+'fea' o 'qsa'
+- Sintaxis más o menos bien hecha pero condiciones al revés
+
+Exercici 5 (0,5 punts)
+Mostra l’dentificador i la ciutat de les oficines situades a la regió oest amb unes vendes inferiors a 600000 o de
+la regió est amb unes vendes inferiors a 700000.
+- Todo bien 
+
+Exercici 6 (0,25 punts)
+Mostra l'identificador del fabricant i quina és la comanda amb l'import més elevat per cada fabricant, però
+mostra només els fabricants que l'import més elevat de comanda sigui superior a 30000.
+- Sintaxis perfecta pero no se usa MAX
+
+Exercici 7 (0 punts)
+Mostra l’identificador del venedor i quina és la mitja del límit de credit dels clients que té assignats cada
+venedor. Mira d’arrodonir la mitja del límit de crèdit a un decimal i ordena els resultats de mitja de límit de
+credit més elevat al menys elevat.
+- No se usa el ROUND ni el DESC
+
+Exercici 8 (0,25 punts)
+Mostra el número total de productes de cada fabricant. Però mostra només els que tinguin 6 o més productes.
+- Todo bien pero se usa consulta multitabla y no una sola
+
+Exercici 9 (0,5 punts)
+Mostra els identificadors junt amb els noms i l'edat dels venedors que són directors d'oficines i que tenen una
+quota entre 300000 i 400000. No mostris valors repetits. Utilitza un JOIN.
+- En el uso del BETWEEN se usa coma en vez de AND
+
+Exercici 10 (0,75 punts)
+Mostra tots els client amb un límit de crèdit superior o igual a 50000. Mostra el nom de l'empresa client,
+el límit de crèdit i el nom del venedor assignat al client. Utilitza el JOIN.
+- Todo bien pero en orden diferente
+
+Exercici 11 (0,25 punts)
+Mostra l'identificador del client i el nom de l'empresa dels clients que no tenen cap comanda. Utilitza una
+Subconsulta.
+- Sintaxis bastante similar pero escrito diferente
+
+Exercici 12 (0,5 punt)
+Mostra el nom i l'edat de tots les persones de l'equip de vendes que no dirigeixen una oficina. Utilitza una
+Subconsulta.
+- No se utiliza el ALL en la comparativa con la subconsulta
+
+Exercici 13 (0 punt )
+Mostra el nom dels venedors que no treballen en oficines dirigides pel venedor amb identificador 108. Mostrant
+també la ciutat de l'oficina on treballa el venedor i l'identificador del director de la oficina. Utilitza una consulta
+multitaula i una Subconsulta.
+- Sintaxis en algunos conceptos similares pero en lo general no
+
+Exercici 14 (0,75 punt)
+Mostrar totes les comandes amb el producte i el venedor que ha tramitat la comanda. Mostra l'identificador i
+l'import de la comanda, el nom del venedor com a "venedor" i la descripció del producte. Uneix les taules que
+necessitis consultar utilitzant JOIN i ordena els resultats per identificador de comanda de major a menor.
+- Sintaxis bastante similar pero en otros campos diferentes
+
+Exercici 15 (1,25 punt )
+Mostra el nom de l'empresa client dels clients que tenen assignat el venedor que porta més temps contractat.
+Utilitza dues Subconsultes.
+- Todo bien
+
+
+NOTA FINAL: Alrededor de 5,65
