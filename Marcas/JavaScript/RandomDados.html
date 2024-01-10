@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #contenedor {
+            display: flex;
+            flex-wrap: wrap;
+            width: 500px;
+        }
+
+        .botonEq1 {
+            background-color: blue;
+            height: 100px;
+            width: 100px;
+            margin: 5px;
+            font-size: 70px;
+        }
+
+        .botonEq2 {
+            background-color: orange;
+            height: 100px;
+            width: 100px;
+            margin: 5px;
+            font-size: 70px;
+        }
+    </style>
+</head>
+<body>
+    <div id="contenedor">
+        <!-- Aquí es donde irá el teclado. -->
+    </div>
+    <div id="final">
+        <h1 id = "resultado"> hola </h1>
+        <button id="refresh">Prueba otra vez</button>
+    </div>
+
+    <script>
+        let contenedor = document.getElementById("contenedor");
+        let cant;
+        let done = false;
+        let Team1Score = 0;
+        let Team2Score = 0;
+        Team1Score = UserNums(Team1Score, cant)
+        Team2Score = ComputerNums(Team2Score, cant);
+        ShowWinner(Team1Score, Team2Score);
+        let refresh = document.getElementById('refresh');
+        refresh.addEventListener('click', _ => {
+            location.reload();
+        })
+
+        function UserNums(Team1Score, cant = 2) {
+            for (let i = 1; i <= cant; i++) {
+            let num = document.createElement("article");
+            let numContent = Math.floor(Math.random() * 6) + 1;
+            Team1Score += numContent;
+            num.textContent = numContent;
+            num.className = "botonEq1";
+            contenedor.appendChild(num);
+            }
+            return Team1Score;
+        }
+
+        function ComputerNums(Team2Score, cant = 2) {
+            for (let i = 1; i <= cant; i++) {
+            let num = document.createElement("article");
+            let numContent = Math.floor(Math.random() * 6) + 1;
+            Team2Score += numContent;
+            num.textContent = numContent;
+            num.className = "botonEq2";
+            contenedor.appendChild(num);
+            }
+            return Team2Score;
+        }
+        
+        function ShowWinner(Team1Score, Team2Score){
+            const UserWinner = "Has ganado!";
+            const ComputerWinner = "Has perdido!";
+            const Draw = "Empate!"
+
+            if (Team1Score === Team2Score){
+                document.getElementById("resultado").innerHTML = Draw;
+            }
+            else if (Team1Score > Team2Score){
+                document.getElementById("resultado").innerHTML = UserWinner;
+            }
+            else {
+                document.getElementById("resultado").innerHTML = ComputerWinner;
+            }
+        }
+    </script>
+</body>
+</html>

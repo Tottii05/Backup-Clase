@@ -1,0 +1,18 @@
+
+    const Input = "Escribe una palabra para ver si empieza por AS";
+    let word;
+    let final;
+    word = prompt(Input);
+    final = AsChecker(word);
+
+    function AsChecker(word){
+        let changed;
+        if (word.toUpperCase().startsWith("AS")) {
+            return word;
+        }
+        else {
+            changed = "AS" + word;
+            return changed;
+        }
+    }
+    alert(final);
