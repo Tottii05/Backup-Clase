@@ -147,36 +147,43 @@ DEPARTMENT_ID   | RETORNO
 0				| ERROR: no dades
 
 --EX 4--
-CREATE OR REPLACE PROCEDURE proc_loc_address (param_add LOCATIONS.STREET_ADDRESS%TYPE) language plpgsql as $$
-    BEGIN
-        UPDATE LOCATIONS SET STREET_ADDRESS = param_add;
-    END$$;
+CREATE OR REPLACE PROCEDURE proc_loc_address (param_add LOCATIONS.STREET_ADDRESS%TYPE, param_locid LOCATIONS.LOCATION_ID%TYPE) LANGUAGE plpgsql AS $$
+BEGIN
+    UPDATE LOCATIONS SET STREET_ADDRESS = param_add WHERE LOCATION_ID = param_locid;
+END $$;
 
-CREATE OR REPLACE FUNCTION func_comprovar_loc (param_loc_id LOCATIONS.LOCATION_ID%TYPE) RETURNS BOOLEAN language plpgsql AS $$
-    DECLARE
-        vlocid LOCATIONS.LOCATION_ID%TYPE;
+CREATE OR REPLACE FUNCTION func_comprovar_loc (param_loc_id LOCATIONS.LOCATION_ID%TYPE) RETURNS BOOLEAN LANGUAGE plpgsql AS $$
+DECLARE
+    vlocid LOCATIONS.LOCATION_ID%TYPE;
+BEGIN
     BEGIN
         SELECT LOCATION_ID
         INTO STRICT vlocid
-        FROM DEPARTMENTS
-        WHERE DEPARTMENT_ID = param_loc_id;
-        IF FOUND THEN
-            RETURN true;
-        ELSE
+        FROM LOCATIONS
+        WHERE LOCATION_ID = param_loc_id;
+
+        RETURN true;
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
             RETURN false;
-        end if;
-END;$$;
+    END;
+END $$;
 
 DO $$
-    DECLARE
-        var_loc_ID LOCATIONS.LOCATION_ID%TYPE := :vLocId;
-        var_loc_Add LOCATIONS.STREET_ADDRESS%TYPE := :vLocADD;
-        var_exists boolean;
-    BEGIN
-        var_exists := func_compv_loc(var_loc_ID);
-        IF (var_exists) THEN
-            CALL proc_loc_address(var_loc_Add);
-        ELSE
-            RAISE EXCEPTION ''
-        end if;
-END;$$ language plpgsql;
+DECLARE
+    var_loc_ID LOCATIONS.LOCATION_ID%TYPE := :vLocId;
+    var_loc_Add LOCATIONS.STREET_ADDRESS%TYPE := :vLocADD;
+    var_exists BOOLEAN;
+BEGIN
+    var_exists := func_comprovar_loc(var_loc_ID);
+    IF NOT var_exists THEN
+        RAISE EXCEPTION 'No existeix aquest location id';
+    END IF;
+
+    CALL proc_loc_address(var_loc_Add, var_loc_ID);
+END $$ LANGUAGE plpgsql;
+/*PRUEBAS*/
+LOCATION_ID     | STREET_ADDRESS                            | RETORNO
+1000            | Prueba                                    | Departament canviat sense problemes
+0               | Prueba2	                                | No existeix aquest location id
+    
