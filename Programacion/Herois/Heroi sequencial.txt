@@ -1,0 +1,1311 @@
+
+                    if (CharacterCreated)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine(CharacterConfirmation);
+                        Console.ResetColor();
+                        Console.WriteLine();
+                        StatCreated = false;
+                        globaltries = 3;
+                        CharacterCreated = false;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write(CharacterIntroductionM);
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine(Barbar);
+                        Console.ResetColor();
+                        Console.WriteLine();
+
+                        ///////////             CREACIÓN DEL BÁRBARO             ///////////
+
+                        do
+                        {
+                            do
+                            {
+                                tries = 3;
+                                Console.WriteLine(HpStat + "[" + BarbarHpMin + "-" + BarbarHpMax + "]");
+                                BarbarHP = Convert.ToInt32(Console.ReadLine());
+                                if ((BarbarHP >= BarbarHpMin) && (BarbarHP <= BarbarHpMax))
+                                {
+                                    StatCreated = true;
+                                    OriginalBarbarHP = BarbarHP;
+                                    Console.Write(StatConfirmation);
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.Write(Correctly);
+                                    Console.WriteLine();
+                                    Console.ResetColor();
+                                    Console.WriteLine();
+                                }
+                                else
+                                {
+                                    Console.Write(WrongNum);
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.Write(TryAgain);
+                                    Console.WriteLine();
+                                    Console.ResetColor();
+                                    Console.WriteLine();
+                                    tries--;
+                                    Console.Write(triesIndicator);
+                                    Console.ForegroundColor = ConsoleColor.Magenta;
+                                    Console.WriteLine(tries);
+                                    Console.ResetColor();
+                                }
+                                if (tries == 0)
+                                {
+                                    globaltries--;
+                                    Console.WriteLine(StatsFail + globaltries);
+                                    Console.WriteLine();
+                                }
+                            } while (!StatCreated && globaltries > 0 && tries > 0);
+                            if (StatCreated)
+                            {
+                                StatCreated = false;
+                                tries = 3;
+
+                                do
+                                {
+                                    Console.WriteLine(AtkStat + "[" + BarbarAtkMin + "-" + BarbarAtkMax + "]");
+                                    BarbarAtk = Convert.ToInt32(Console.ReadLine());
+                                    if ((BarbarAtk >= BarbarAtkMin) && (BarbarAtk <= BarbarAtkMax))
+                                    {
+                                        StatCreated = true;
+                                        Console.Write(StatConfirmation);
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.Write(Correctly);
+                                        Console.WriteLine();
+                                        Console.ResetColor();
+                                        Console.WriteLine();
+                                    }
+                                    else
+                                    {
+                                        Console.Write(WrongNum);
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.Write(TryAgain);
+                                        Console.WriteLine();
+                                        Console.ResetColor();
+                                        Console.WriteLine();
+                                        tries--;
+                                        Console.Write(triesIndicator);
+                                        Console.ForegroundColor = ConsoleColor.Magenta;
+                                        Console.WriteLine(tries);
+                                        Console.ResetColor();
+                                    }
+                                    if (tries == 0)
+                                    {
+                                        globaltries--;
+                                        Console.WriteLine(StatsFail + globaltries);
+                                        Console.WriteLine();
+                                    }
+                                } while (!StatCreated && globaltries > 0 && tries > 0);
+                            }
+                            if (StatCreated)
+                            {
+                                StatCreated = false;
+                                do
+                                {
+                                    Console.WriteLine(DefStat + "[" + BarbarDefMin + "-" + BarbarDefMax + "]");
+                                    BarbarDef = Convert.ToInt32(Console.ReadLine());
+                                    if ((BarbarDef >= BarbarDefMin) && (BarbarDef <= BarbarDefMax))
+                                    {
+                                        OriginalBarbarDef = BarbarDef;
+                                        StatCreated = true;
+                                        Console.Write(StatConfirmation);
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.Write(Correctly);
+                                        Console.WriteLine();
+                                        Console.ResetColor();
+                                        Console.WriteLine();
+                                        CharacterCreated = true;
+                                    }
+                                    else
+                                    {
+                                        Console.Write(WrongNum);
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.Write(TryAgain);
+                                        Console.WriteLine();
+                                        Console.ResetColor();
+                                        Console.WriteLine();
+                                        tries--;
+                                        Console.Write(triesIndicator);
+                                        Console.ForegroundColor = ConsoleColor.Magenta;
+                                        Console.WriteLine(tries);
+                                        Console.ResetColor();
+                                    }
+                                    if (tries == 0)
+                                    {
+                                        globaltries--;
+                                        Console.WriteLine(StatsFail + globaltries);
+                                        Console.WriteLine();
+                                    }
+                                } while (!StatCreated && globaltries > 0 && tries > 0);
+                            }
+                        } while ((!CharacterCreated) && globaltries > 0);
+                    }
+                    if (CharacterCreated)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine(CharacterConfirmation);
+                        Console.ResetColor();
+                        Console.WriteLine();
+                        StatCreated = false;
+                        globaltries = 3;
+                        CharacterCreated = false;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write(CharacterIntroductionF);
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine(Mage);
+                        Console.ResetColor();
+                        Console.WriteLine();
+
+                        ///////////             CREACIÓN DE LA MAGA             ///////////
+
+                        do
+                        {
+                            do
+                            {
+                                tries = 3;
+                                Console.WriteLine(HpStat + "[" + MageHpMin + "-" + MageHpMax + "]");
+                                MageHP = Convert.ToInt32(Console.ReadLine());
+                                if ((MageHP >= MageHpMin) && (MageHP <= MageHpMax))
+                                {
+                                    StatCreated = true;
+                                    OriginalMageHP = MageHP;
+                                    Console.Write(StatConfirmation);
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.Write(Correctly);
+                                    Console.WriteLine();
+                                    Console.ResetColor();
+                                    Console.WriteLine();
+                                }
+                                else
+                                {
+                                    Console.Write(WrongNum);
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.Write(TryAgain);
+                                    Console.WriteLine();
+                                    Console.ResetColor();
+                                    Console.WriteLine();
+                                    tries--;
+                                    Console.Write(triesIndicator);
+                                    Console.ForegroundColor = ConsoleColor.Magenta;
+                                    Console.WriteLine(tries);
+                                    Console.ResetColor();
+                                }
+                                if (tries == 0)
+                                {
+                                    globaltries--;
+                                    Console.WriteLine(StatsFail + globaltries);
+                                    Console.WriteLine();
+                                }
+                            } while (!StatCreated && globaltries > 0 && tries > 0);
+                            if (StatCreated)
+                            {
+                                StatCreated = false;
+                                tries = 3;
+
+                                do
+                                {
+                                    Console.WriteLine(AtkStat + "[" + MageAtkMin + "-" + MageAtkMax + "]");
+                                    MageAtk = Convert.ToInt32(Console.ReadLine());
+                                    if ((MageAtk >= MageAtkMin) && (MageAtk <= MageAtkMax))
+                                    {
+                                        StatCreated = true;
+                                        Console.Write(StatConfirmation);
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.Write(Correctly);
+                                        Console.WriteLine();
+                                        Console.ResetColor();
+                                        Console.WriteLine();
+                                    }
+                                    else
+                                    {
+                                        Console.Write(WrongNum);
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.Write(TryAgain);
+                                        Console.WriteLine();
+                                        Console.ResetColor();
+                                        Console.WriteLine();
+                                        tries--;
+                                        Console.Write(triesIndicator);
+                                        Console.ForegroundColor = ConsoleColor.Magenta;
+                                        Console.WriteLine(tries);
+                                        Console.ResetColor();
+                                    }
+                                    if (tries == 0)
+                                    {
+                                        globaltries--;
+                                        Console.WriteLine(StatsFail + globaltries);
+                                        Console.WriteLine();
+                                    }
+                                } while (!StatCreated && globaltries > 0 && tries > 0);
+                            }
+                            if (StatCreated)
+                            {
+                                StatCreated = false;
+                                do
+                                {
+                                    Console.WriteLine(DefStat + "[" + MageDefMin + "-" + MageDefMax + "]");
+                                    MageDef = Convert.ToInt32(Console.ReadLine());
+                                    if ((MageDef >= MageDefMin) && (MageDef <= MageDefMax))
+                                    {
+                                        StatCreated = true;
+                                        OriginalMageDef = MageDef;
+                                        Console.Write(StatConfirmation);
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.Write(Correctly);
+                                        Console.WriteLine();
+                                        Console.ResetColor();
+                                        Console.WriteLine();
+                                        CharacterCreated = true;
+                                    }
+                                    else
+                                    {
+                                        Console.Write(WrongNum);
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.Write(TryAgain);
+                                        Console.WriteLine();
+                                        Console.ResetColor();
+                                        Console.WriteLine();
+                                        tries--;
+                                        Console.Write(triesIndicator);
+                                        Console.ForegroundColor = ConsoleColor.Magenta;
+                                        Console.WriteLine(tries);
+                                        Console.ResetColor();
+                                    }
+                                    if (tries == 0)
+                                    {
+                                        globaltries--;
+                                        Console.WriteLine(StatsFail + globaltries);
+                                        Console.WriteLine();
+                                    }
+                                } while (!StatCreated && globaltries > 0 && tries > 0);
+                            }
+                        } while ((!CharacterCreated) && globaltries > 0);
+                    }
+                    if (CharacterCreated)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine(CharacterConfirmation);
+                        Console.ResetColor();
+                        Console.WriteLine();
+                        StatCreated = false;
+                        globaltries = 3;
+                        CharacterCreated = false;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write(CharacterIntroductionM);
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine(Druid);
+                        Console.ResetColor();
+                        Console.WriteLine();
+
+                        ///////////             CREACIÓN DEL DRUIDA            ///////////
+
+                        do
+                        {
+                            do
+                            {
+                                tries = 3;
+                                Console.WriteLine(HpStat + "[" + DruidHpMin + "-" + DruidHpMax + "]");
+                                DruidHP = Convert.ToInt32(Console.ReadLine());
+                                if ((DruidHP >= DruidHpMin) && (DruidHP <= DruidHpMax))
+                                {
+                                    StatCreated = true;
+                                    OriginalDruidHP = DruidHP;
+                                    Console.Write(StatConfirmation);
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.Write(Correctly);
+                                    Console.WriteLine();
+                                    Console.ResetColor();
+                                    Console.WriteLine();
+                                }
+                                else
+                                {
+                                    Console.Write(WrongNum);
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.Write(TryAgain);
+                                    Console.WriteLine();
+                                    Console.ResetColor();
+                                    Console.WriteLine();
+                                    tries--;
+                                    Console.Write(triesIndicator);
+                                    Console.ForegroundColor = ConsoleColor.Magenta;
+                                    Console.WriteLine(tries);
+                                    Console.ResetColor();
+                                }
+                                if (tries == 0)
+                                {
+                                    globaltries--;
+                                    Console.WriteLine(StatsFail + globaltries);
+                                    Console.WriteLine();
+                                }
+                            } while (!StatCreated && globaltries > 0 && tries > 0);
+                            if (StatCreated)
+                            {
+                                StatCreated = false;
+                                tries = 3;
+
+                                do
+                                {
+                                    Console.WriteLine(AtkStat + "[" + DruidAtkMin + "-" + DruidAtkMax + "]");
+                                    DruidAtk = Convert.ToInt32(Console.ReadLine());
+                                    if ((DruidAtk >= DruidAtkMin) && (DruidAtk <= DruidAtkMax))
+                                    {
+                                        StatCreated = true;
+                                        Console.Write(StatConfirmation);
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.Write(Correctly);
+                                        Console.WriteLine();
+                                        Console.ResetColor();
+                                        Console.WriteLine();
+                                    }
+                                    else
+                                    {
+                                        Console.Write(WrongNum);
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.Write(TryAgain);
+                                        Console.WriteLine();
+                                        Console.ResetColor();
+                                        Console.WriteLine();
+                                        tries--;
+                                        Console.Write(triesIndicator);
+                                        Console.ForegroundColor = ConsoleColor.Magenta;
+                                        Console.WriteLine(tries);
+                                        Console.ResetColor();
+                                    }
+                                    if (tries == 0)
+                                    {
+                                        globaltries--;
+                                        Console.WriteLine(StatsFail + globaltries);
+                                        Console.WriteLine();
+                                    }
+                                } while (!StatCreated && globaltries > 0 && tries > 0);
+                            }
+                            if (StatCreated)
+                            {
+                                StatCreated = false;
+                                do
+                                {
+                                    Console.WriteLine(DefStat + "[" + DruidDefMin + "-" + DruidDefMax + "]");
+                                    DruidDef = Convert.ToInt32(Console.ReadLine());
+                                    if ((DruidDef >= DruidDefMin) && (DruidDef <= DruidDefMax))
+                                    {
+                                        StatCreated = true;
+                                        OriginalDruidDef = DruidDef;
+                                        Console.Write(StatConfirmation);
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.Write(Correctly);
+                                        Console.WriteLine();
+                                        Console.ResetColor();
+                                        Console.WriteLine();
+                                        CharacterCreated = true;
+                                    }
+                                    else
+                                    {
+                                        Console.Write(WrongNum);
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.Write(TryAgain);
+                                        Console.WriteLine();
+                                        Console.ResetColor();
+                                        Console.WriteLine();
+                                        tries--;
+                                        Console.Write(triesIndicator);
+                                        Console.ForegroundColor = ConsoleColor.Magenta;
+                                        Console.WriteLine(tries);
+                                        Console.ResetColor();
+                                    }
+                                    if (tries == 0)
+                                    {
+                                        globaltries--;
+                                        Console.WriteLine(StatsFail + globaltries);
+                                        Console.WriteLine();
+                                    }
+                                } while (!StatCreated && globaltries > 0 && tries > 0);
+                            }
+                        } while ((!CharacterCreated) && globaltries > 0);
+                    }
+                    if (CharacterCreated)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine(CharacterConfirmation);
+                        Console.ResetColor();
+                        Console.WriteLine();
+                        StatCreated = false;
+                        globaltries = 3;
+                        CharacterCreated = false;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write(CharacterIntroductionM);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine(Monster);
+                        Console.ResetColor();
+                        Console.WriteLine();
+
+                        ///////////             CREACIÓN DEL MONSTRUO           ///////////
+
+                        do
+                        {
+                            do
+                            {
+                                tries = 3;
+                                Console.WriteLine(HpStat + "[" + MonsterHpMin + "-" + MonsterHpMax + "]");
+                                MonsterHP = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine(MonsterHP);
+                                if ((MonsterHP >= MonsterHpMin) && (MonsterHP <= MonsterHpMax))
+                                {
+                                    StatCreated = true;
+                                    Console.Write(StatConfirmation);
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.Write(Correctly);
+                                    Console.WriteLine();
+                                    Console.ResetColor();
+                                    Console.WriteLine();
+                                }
+                                else
+                                {
+                                    Console.Write(WrongNum);
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.Write(TryAgain);
+                                    Console.WriteLine();
+                                    Console.ResetColor();
+                                    Console.WriteLine();
+                                    tries--;
+                                    Console.Write(triesIndicator);
+                                    Console.ForegroundColor = ConsoleColor.Magenta;
+                                    Console.WriteLine(tries);
+                                    Console.ResetColor();
+                                }
+                                if (tries == 0)
+                                {
+                                    globaltries--;
+                                    Console.WriteLine(StatsFail + globaltries);
+                                    Console.WriteLine();
+                                }
+                            } while (!StatCreated && globaltries > 0 && tries > 0);
+                            if (StatCreated)
+                            {
+                                StatCreated = false;
+                                tries = 3;
+                                do
+                                {
+                                    Console.WriteLine(AtkStat + "[" + MonsterAtkMin + "-" + MonsterAtkMax + "]");
+                                    MonsterAtk = Convert.ToInt32(Console.ReadLine());
+                                    if ((MonsterAtk >= MonsterAtkMin) && (MonsterAtk <= MonsterAtkMax))
+                                    {
+                                        StatCreated = true;
+                                        Console.Write(StatConfirmation);
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.Write(Correctly);
+                                        Console.WriteLine();
+                                        Console.ResetColor();
+                                        Console.WriteLine();
+                                    }
+                                    else
+                                    {
+                                        Console.Write(WrongNum);
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.Write(TryAgain);
+                                        Console.WriteLine();
+                                        Console.ResetColor();
+                                        Console.WriteLine();
+                                        tries--;
+                                        Console.Write(triesIndicator);
+                                        Console.ForegroundColor = ConsoleColor.Magenta;
+                                        Console.WriteLine(tries);
+                                        Console.ResetColor();
+                                    }
+                                    if (tries == 0)
+                                    {
+                                        globaltries--;
+                                        Console.WriteLine(StatsFail + globaltries);
+                                        Console.WriteLine();
+                                    }
+                                } while (!StatCreated && globaltries > 0 && tries > 0);
+                            }
+                            if (StatCreated)
+                            {
+                                StatCreated = false;
+                                tries = 3;
+                                do
+                                {
+                                    Console.WriteLine(DefStat + "[" + MonsterDefMin + "-" + MonsterDefMax + "]");
+                                    MonsterDef = Convert.ToInt32(Console.ReadLine());
+                                    if ((MonsterDef >= MonsterDefMin) && (MonsterDef <= MonsterDefMax))
+                                    {
+                                        StatCreated = true;
+                                        Console.Write(StatConfirmation);
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.Write(Correctly);
+                                        Console.WriteLine();
+                                        Console.ResetColor();
+                                        Console.WriteLine();
+                                        CharacterCreated = true;
+                                        AllCharacterCreated = true;
+                                    }
+                                    else
+                                    {
+                                        Console.Write(WrongNum);
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.Write(TryAgain);
+                                        Console.WriteLine();
+                                        Console.ResetColor();
+                                        Console.WriteLine();
+                                        tries--;
+                                        Console.Write(triesIndicator);
+                                        Console.ForegroundColor = ConsoleColor.Magenta;
+                                        Console.WriteLine(tries);
+                                        Console.ResetColor();
+                                    }
+                                    if (tries == 0)
+                                    {
+                                        globaltries--;
+                                        Console.WriteLine(StatsFail + globaltries);
+                                        Console.WriteLine();
+                                    }
+                                } while (!StatCreated && globaltries > 0 && tries > 0);
+                            }
+                        } while ((!AllCharacterCreated) && (!CharacterCreated) && globaltries > 0);
+                    }
+                    if (globaltries == 0)
+                    {
+                        Console.WriteLine(CharacterFail);
+                    }
+                    if (AllCharacterCreated)
+                    {
+                        if (battletries > 0)
+                        {
+                            Console.Clear();
+                            Console.Write(BattleStart);
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.Write(Battle);
+                            Console.ResetColor();
+                            Console.WriteLine();
+                            ///////////             BATALLA           ///////////
+                            do
+                            {
+                                CharacterDone = false;
+                                Console.Write(Rounds);
+                                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                                Console.Write(round);
+                                Console.ResetColor();
+                                Console.WriteLine();
+                                /* Indicador de vida de la arquera */
+                                if (ArcherHP > 0)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                    Console.Write(Archer);
+                                    Console.ResetColor();
+                                    Console.Write(LifeText);
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.Write(Life);
+                                    Console.ResetColor();
+                                    Console.WriteLine(ArcherHP);
+                                }
+                                else
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                    Console.Write(Archer);
+                                    Console.ResetColor();
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine(DeadF);
+                                    Console.ResetColor();
+                                }
+
+                                /* Indicador de vida del bárbaro */
+                                if (BarbarHP > 0)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                    Console.Write(Barbar);
+                                    Console.ResetColor();
+                                    Console.Write(LifeText);
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.Write(Life);
+                                    Console.ResetColor();
+                                    Console.WriteLine(BarbarHP);
+                                }
+                                else
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                    Console.Write(Barbar);
+                                    Console.ResetColor();
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine(DeadM);
+                                    Console.ResetColor();
+                                }
+
+                                /* Indicador de vida de la maga */
+                                if (MageHP > 0)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                    Console.Write(Mage);
+                                    Console.ResetColor();
+                                    Console.Write(LifeText);
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.Write(Life);
+                                    Console.ResetColor();
+                                    Console.WriteLine(MageHP);
+                                }
+                                else
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                    Console.Write(Mage);
+                                    Console.ResetColor();
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine(DeadF);
+                                    Console.ResetColor();
+                                }
+
+                                /* Indicador de vida del druida */
+                                if (DruidHP > 0)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                    Console.Write(Druid);
+                                    Console.ResetColor();
+                                    Console.Write(LifeText);
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.Write(Life);
+                                    Console.ResetColor();
+                                    Console.WriteLine(DruidHP);
+                                    Console.WriteLine();
+                                }
+                                else
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                    Console.Write(Druid);
+                                    Console.ResetColor();
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine(DeadM);
+                                    Console.ResetColor();
+                                }
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.Write(Monster);
+                                Console.ResetColor();
+                                Console.Write(LifeText);
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.Write(Life);
+                                Console.ResetColor();
+                                Console.WriteLine(MonsterHP);
+                                Console.WriteLine();
+
+                                /* Se almacena el valor de la vida original en caso de que quiera curar el druida no se pase del valor original */
+                                ArcherDef = OriginalArcherDef;
+                                BarbarDef = OriginalBarbarDef;
+                                MageDef = OriginalMageDef;
+                                DruidDef = OriginalDruidDef;
+
+                                /* Restar turnos a la cantidad de turnos de enfriamiento de habilidades especiales */
+                                stunCD--;
+                                heavyArmorRounds--;
+                                heavyArmorCD--;
+                                MageCD--;
+                                DruidCD--;
+
+                                ///////////             ARQUERA           ///////////
+
+                                if (battletries > 0)
+                                {
+                                    if (MonsterHP > 0)
+                                    {
+                                        if (ArcherHP > 0)
+                                        {
+                                            do
+                                            {
+                                                Console.Write(CharacterUseF);
+                                                Console.ForegroundColor = ConsoleColor.Blue;
+                                                Console.Write(Archer);
+                                                Console.ResetColor();
+                                                Console.WriteLine();
+                                                Console.WriteLine(RoundsChoiceText);
+                                                roundsChoice = Convert.ToInt32(Console.ReadLine());
+                                                if (roundsChoice < 1 || roundsChoice > 3)
+                                                {
+                                                    battletries--;
+                                                    Console.Write(WrongNum);
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.Write(TryAgain);
+                                                    Console.ResetColor();
+                                                    Console.Write(triesAdvert);
+                                                    Console.ForegroundColor = ConsoleColor.Magenta;
+                                                    Console.WriteLine(battletries);
+                                                    Console.ResetColor();
+                                                    Console.WriteLine();
+                                                }
+                                                if (roundsChoice == 1)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                                    Console.Write(Archer);
+                                                    Console.ResetColor();
+                                                    Console.Write(Attack);
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.Write(Monster);
+                                                    Console.ResetColor();
+                                                    Console.Write(Doing);
+                                                    Console.Write(ArcherAtk - MonsterDef);
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.Write(Dmg);
+                                                    Console.ResetColor();
+                                                    Console.WriteLine();
+                                                    Console.Write(Monster);
+                                                    Console.Write(LifeText);
+                                                    Console.ForegroundColor = ConsoleColor.Green;
+                                                    Console.Write(Life);
+                                                    Console.ResetColor();
+                                                    Console.Write(MonsterHP - (ArcherAtk - MonsterDef));
+                                                    Console.WriteLine();
+                                                    MonsterHP = MonsterHP + ((ArcherAtk * MonsterDef / Hundred) - ArcherAtk);
+                                                    Console.WriteLine();
+                                                    CharacterDone = true;
+                                                }
+                                                if (roundsChoice == 2)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                                    Console.Write(Archer);
+                                                    Console.ResetColor();
+                                                    Console.Write(DuplicateDefense);
+                                                    Console.WriteLine(ArcherDef * 2);
+                                                    ArcherDef = ArcherDef * 2;
+                                                    Console.WriteLine();
+                                                    CharacterDone = true;
+                                                }
+                                                if (roundsChoice == 3 && stunCD > 0)
+                                                {
+                                                    Console.WriteLine(CDText + stunCD);
+                                                    Console.WriteLine();
+                                                }
+                                                else
+                                                {
+                                                    if (roundsChoice == 3)
+                                                    {
+                                                        if (stunCD > 0)
+                                                        {
+                                                            Console.WriteLine(CDText + stunRounds);
+                                                            Console.WriteLine();
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Blue;
+                                                            Console.Write(Archer);
+                                                            Console.ResetColor();
+                                                            Console.Write(ArcherSpecialMove);
+                                                            Console.ForegroundColor = ConsoleColor.Red;
+                                                            Console.WriteLine(Monster);
+                                                            Console.ResetColor();
+                                                            Console.WriteLine();
+                                                            stunRounds = 2;
+                                                            stunCD = 5;
+                                                            CharacterDone = true;
+                                                        }
+                                                    }
+                                                }
+                                            } while (battletries > 0 && !CharacterDone);
+                                        }
+                                    }
+                                }
+                                ///////////             BÁRBARO           ///////////
+
+                                if (battletries > 0)
+                                {
+                                    CharacterDone = false;
+                                    if (MonsterHP > 0)
+                                    {
+                                        if (BarbarHP > 0)
+                                        {
+                                            do
+                                            {
+                                                Console.Write(CharacterUseM);
+                                                Console.ForegroundColor = ConsoleColor.Blue;
+                                                Console.Write(Barbar);
+                                                Console.ResetColor();
+                                                Console.WriteLine();
+                                                Console.WriteLine(RoundsChoiceText);
+                                                roundsChoice = Convert.ToInt32(Console.ReadLine());
+                                                if (roundsChoice < 1 || roundsChoice > 3)
+                                                {
+                                                    Console.Write(WrongNum);
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.WriteLine(TryAgain);
+                                                    Console.ResetColor();
+                                                    Console.WriteLine();
+                                                    battletries--;
+                                                }
+                                                if (roundsChoice == 1)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                                    Console.Write(Barbar);
+                                                    Console.ResetColor();
+                                                    Console.Write(Attack);
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.Write(Monster);
+                                                    Console.ResetColor();
+                                                    Console.Write(Doing);
+                                                    Console.Write(BarbarAtk - MonsterDef);
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.Write(Dmg);
+                                                    Console.ResetColor();
+                                                    Console.WriteLine();
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.Write(Monster);
+                                                    Console.ResetColor();
+                                                    Console.Write(LifeText);
+                                                    Console.ForegroundColor = ConsoleColor.Green;
+                                                    Console.Write(Life);
+                                                    Console.ResetColor();
+                                                    Console.Write(MonsterHP - (BarbarAtk - MonsterDef));
+                                                    Console.WriteLine();
+                                                    MonsterHP = MonsterHP + ((BarbarAtk * MonsterDef / Hundred) - BarbarAtk);
+                                                    Console.WriteLine();
+                                                    CharacterDone = true;
+                                                }
+                                                if (roundsChoice == 2)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                                    Console.Write(Barbar);
+                                                    Console.ResetColor();
+                                                    Console.WriteLine(DuplicateDefense);
+                                                    Console.WriteLine(BarbarDef * 2);
+                                                    BarbarDef = BarbarDef * 2;
+                                                    CharacterDone = true;
+                                                }
+                                                if (roundsChoice == 3)
+                                                    if (heavyArmorCD > 0)
+                                                    {
+                                                        Console.WriteLine(CDText + heavyArmorCD);
+                                                        Console.WriteLine();
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Blue;
+                                                        Console.Write(Barbar);
+                                                        Console.ResetColor();
+                                                        Console.WriteLine(BarbarSpecialMove);
+                                                        Console.WriteLine();
+                                                        heavyArmorRounds = 3;
+                                                        BarbarDef = Hundred;
+                                                        heavyArmorCD = 5;
+                                                        CharacterDone = true;
+                                                    }
+                                            } while (battletries > 0 && !CharacterDone);
+                                        }
+                                    }
+                                }
+
+                                ///////////             MAGA           ///////////
+
+                                if (battletries > 0)
+                                {
+                                    CharacterDone = false;
+                                    if (MonsterHP > 0)
+                                    {
+                                        if (MageHP > 0)
+                                        {
+                                            do
+                                            {
+                                                Console.Write(CharacterUseF);
+                                                Console.ForegroundColor = ConsoleColor.Blue;
+                                                Console.Write(Mage);
+                                                Console.ResetColor();
+                                                Console.WriteLine();
+                                                Console.WriteLine(RoundsChoiceText);
+                                                roundsChoice = Convert.ToInt32(Console.ReadLine());
+                                                if (roundsChoice < 1 || roundsChoice > 3)
+                                                {
+                                                    Console.Write(WrongNum);
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.WriteLine(TryAgain);
+                                                    Console.ResetColor();
+                                                    Console.WriteLine();
+                                                    battletries--;
+                                                }
+                                                if (roundsChoice == 1)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                                    Console.Write(Mage);
+                                                    Console.ResetColor();
+                                                    Console.Write(Attack);
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.Write(Monster);
+                                                    Console.ResetColor();
+                                                    Console.Write(Doing);
+                                                    Console.Write(MageAtk - MonsterDef);
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.Write(Dmg);
+                                                    Console.ResetColor();
+                                                    Console.WriteLine();
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.Write(Monster);
+                                                    Console.ResetColor();
+                                                    Console.Write(LifeText);
+                                                    Console.ForegroundColor = ConsoleColor.Green;
+                                                    Console.Write(Life);
+                                                    Console.ResetColor();
+                                                    Console.Write(MonsterHP - (MageAtk - MonsterDef));
+                                                    Console.WriteLine();
+                                                    MonsterHP = MonsterHP + ((MageAtk * MonsterDef / Hundred) - MageAtk);
+                                                    Console.WriteLine();
+                                                    CharacterDone = true;
+                                                }
+                                                if (roundsChoice == 2)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                                    Console.Write(Mage);
+                                                    Console.ResetColor();
+                                                    Console.Write(DuplicateDefense);
+                                                    Console.WriteLine(MageDef * 2);
+                                                    MageDef = MageDef * 2;
+                                                    Console.WriteLine();
+                                                    CharacterDone = true;
+                                                }
+                                                if (roundsChoice == 3 && MageCD > 0)
+                                                {
+                                                    Console.WriteLine(CDText + MageCD);
+                                                    Console.WriteLine();
+                                                }
+                                                else
+                                                {
+                                                    if (roundsChoice == 3)
+                                                    {
+                                                        if (MageCD > 0)
+                                                        {
+                                                            Console.WriteLine(CDText + MageCD);
+                                                            Console.WriteLine();
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Blue;
+                                                            Console.Write(Mage);
+                                                            Console.ResetColor();
+                                                            Console.Write(MageSpecialMove);
+                                                            Console.Write(MageAtk * 3);
+                                                            Console.ForegroundColor = ConsoleColor.Red;
+                                                            Console.Write(Dmg);
+                                                            Console.ResetColor();
+                                                            Console.WriteLine();
+                                                            Console.ForegroundColor = ConsoleColor.Red;
+                                                            Console.Write(Monster);
+                                                            Console.ResetColor();
+                                                            Console.Write(LifeText);
+                                                            Console.ForegroundColor = ConsoleColor.Green;
+                                                            Console.Write(Life);
+                                                            Console.ResetColor();
+                                                            Console.Write(MonsterHP - ((MageAtk * 3) - MonsterDef));
+                                                            Console.WriteLine();
+                                                            MonsterHP = MonsterHP - ((MageAtk * 3) - MonsterDef);
+                                                            MageCD = 5;
+                                                            Console.WriteLine();
+                                                            CharacterDone = true;
+                                                        }
+                                                    }
+
+                                                }
+                                            } while (battletries > 0 && !CharacterDone);
+                                        }
+                                    }
+                                }
+
+                                ///////////             DRUIDA           ///////////
+
+                                if (battletries > 0)
+                                {
+                                    CharacterDone = false;
+                                    if (MonsterHP > 0)
+                                    {
+                                        if (DruidHP > 0)
+                                        {
+                                            do
+                                            {
+                                                Console.Write(CharacterUseM);
+                                                Console.ForegroundColor = ConsoleColor.Blue;
+                                                Console.Write(Druid);
+                                                Console.ResetColor();
+                                                Console.WriteLine();
+                                                Console.WriteLine(RoundsChoiceText);
+                                                roundsChoice = Convert.ToInt32(Console.ReadLine());
+                                                if (roundsChoice < 1 || roundsChoice > 3)
+                                                {
+                                                    Console.Write(WrongNum);
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.WriteLine(TryAgain);
+                                                    Console.ResetColor();
+                                                    Console.WriteLine();
+                                                    tries--;
+                                                }
+                                                if (roundsChoice == 1)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                                    Console.Write(Druid);
+                                                    Console.ResetColor();
+                                                    Console.Write(Attack);
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.Write(Monster);
+                                                    Console.ResetColor();
+                                                    Console.Write(Doing);
+                                                    Console.Write(DruidAtk - MonsterDef);
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.Write(Dmg);
+                                                    Console.ResetColor();
+                                                    Console.WriteLine();
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.Write(Monster);
+                                                    Console.ResetColor();
+                                                    Console.Write(LifeText);
+                                                    Console.ForegroundColor = ConsoleColor.Green;
+                                                    Console.Write(Life);
+                                                    Console.ResetColor();
+                                                    Console.Write(MonsterHP - (DruidAtk - MonsterDef));
+                                                    Console.WriteLine();
+                                                    MonsterHP = MonsterHP + ((DruidAtk * MonsterDef / Hundred) - DruidAtk);
+                                                    Console.WriteLine();
+                                                    CharacterDone = true;
+                                                }
+                                                if (roundsChoice == 2)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                                    Console.Write(Druid);
+                                                    Console.ResetColor();
+                                                    Console.Write(DuplicateDefense);
+                                                    Console.WriteLine(DruidDef * 2);
+                                                    DruidDef = DruidDef * 2;
+                                                    Console.WriteLine();
+                                                    CharacterDone = true;
+                                                }
+                                                if (roundsChoice == 3)
+                                                {
+                                                    if (DruidCD > 0)
+                                                    {
+                                                        Console.WriteLine(CDText + DruidCD);
+                                                        Console.WriteLine();
+                                                    }
+                                                    else
+                                                    {
+                                                        if (ArcherHP + DruidHeal > OriginalArcherHP)
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Blue;
+                                                            Console.Write(Druid);
+                                                            Console.ResetColor();
+                                                            Console.Write(DruidSpecialMove);
+                                                            Console.ForegroundColor = ConsoleColor.Blue;
+                                                            Console.Write(Archer);
+                                                            Console.ResetColor();
+                                                            Console.ForegroundColor = ConsoleColor.Green;
+                                                            Console.Write(OriginalArcherHP - ArcherHP);
+                                                            Console.Write(" + ");
+                                                            Console.Write(Life);
+                                                            Console.ResetColor();
+                                                            ArcherHP = OriginalArcherHP;
+                                                            Console.WriteLine();
+                                                        }
+                                                        if (BarbarHP + DruidHeal > OriginalBarbarHP)
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Blue;
+                                                            Console.Write(Druid);
+                                                            Console.ResetColor();
+                                                            Console.Write(DruidSpecialMove);
+                                                            Console.ForegroundColor = ConsoleColor.Blue;
+                                                            Console.Write(Barbar);
+                                                            Console.ResetColor();
+                                                            Console.ForegroundColor = ConsoleColor.Green;
+                                                            Console.Write(OriginalBarbarHP - BarbarHP);
+                                                            Console.Write(" + ");
+                                                            Console.Write(Life);
+                                                            Console.ResetColor();
+                                                            BarbarHP = OriginalBarbarHP;
+                                                            Console.WriteLine();
+                                                        }
+                                                        if (MageHP + DruidHeal > OriginalMageHP)
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Blue;
+                                                            Console.Write(Druid);
+                                                            Console.ResetColor();
+                                                            Console.Write(DruidSpecialMove);
+                                                            Console.ForegroundColor = ConsoleColor.Blue;
+                                                            Console.Write(Mage);
+                                                            Console.ResetColor();
+                                                            Console.ForegroundColor = ConsoleColor.Green;
+                                                            Console.Write(OriginalMageHP - MageHP);
+                                                            Console.Write(" + ");
+                                                            Console.Write(Life);
+                                                            Console.ResetColor();
+                                                            MageHP = OriginalMageHP;
+                                                            Console.WriteLine();
+                                                        }
+                                                        if (DruidHP + DruidHeal > OriginalDruidHP)
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Blue;
+                                                            Console.Write(Druid);
+                                                            Console.ResetColor();
+                                                            Console.Write(DruidSpecialMove);
+                                                            Console.ForegroundColor = ConsoleColor.Blue;
+                                                            Console.Write(Mage);
+                                                            Console.ResetColor();
+                                                            Console.ForegroundColor = ConsoleColor.Green;
+                                                            Console.Write(OriginalDruidHP - DruidHP);
+                                                            Console.Write(" + ");
+                                                            Console.Write(Life);
+                                                            Console.ResetColor();
+                                                            DruidHP = OriginalDruidHP;
+                                                            Console.WriteLine();
+                                                            DruidCD = 5;
+                                                            CharacterDone = true;
+                                                        }
+                                                        if ((ArcherHP + DruidHeal < OriginalArcherHP) && (BarbarHP + DruidHeal < OriginalBarbarHP) && (MageHP + DruidHeal < OriginalMageHP) && (DruidHP + DruidHeal < OriginalDruidHP))
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Blue;
+                                                            Console.Write(Druid);
+                                                            Console.ResetColor();
+                                                            Console.Write(DruidSpecialMove);
+                                                            Console.ForegroundColor = ConsoleColor.Blue;
+                                                            Console.Write(Archer);
+                                                            Console.Write(" ");
+                                                            Console.Write(Barbar);
+                                                            Console.Write(" ");
+                                                            Console.Write(Mage);
+                                                            Console.Write(" ");
+                                                            Console.Write(Druid);
+                                                            Console.ResetColor();
+                                                            Console.ForegroundColor = ConsoleColor.Green;
+                                                            Console.Write(DruidHeal);
+                                                            Console.Write(" + ");
+                                                            Console.Write(Life);
+                                                            Console.ResetColor();
+                                                            ArcherHP += DruidHeal;
+                                                            BarbarHP += DruidHeal;
+                                                            MageHP += DruidHeal;
+                                                            DruidHP += DruidHeal;
+                                                            Console.WriteLine();
+                                                            DruidCD = 5;
+                                                            CharacterDone = true;
+                                                        }
+                                                    }
+                                                }
+                                            } while (battletries > 0 && !CharacterDone);
+                                        }
+                                    }
+                                }
+
+                                ///////////             MONSTRUO           ///////////
+
+                                if (battletries > 0)
+                                {
+                                    if (MonsterHP > 0)
+                                    {
+                                        do
+                                        {
+                                            if (stunRounds > 0)
+                                            {
+                                                Console.ForegroundColor= ConsoleColor.Red;
+                                                Console.Write(Monster);
+                                                Console.ResetColor();
+                                                Console.WriteLine(StunEfect);
+                                                Console.WriteLine();
+                                                stunRounds--;
+                                                CharacterDone = true;
+                                                round++;
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine();
+                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                Console.Write(Monster);
+                                                Console.ResetColor();
+                                                Console.WriteLine(MonsterAttack);
+                                                Console.WriteLine();
+
+                                                Console.ForegroundColor = ConsoleColor.Blue;
+                                                Console.Write(Archer);
+                                                Console.ResetColor();
+                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                Console.Write(" - ");
+                                                Console.WriteLine(MonsterAtk);
+                                                Console.ResetColor();
+                                                Console.WriteLine();
+
+                                                Console.ForegroundColor = ConsoleColor.Blue;
+                                                Console.Write(Barbar);
+                                                Console.ResetColor();
+                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                Console.Write(" - ");
+                                                Console.WriteLine(MonsterAtk);
+                                                Console.ResetColor();
+                                                Console.WriteLine();
+
+                                                Console.ForegroundColor = ConsoleColor.Blue;
+                                                Console.Write(Mage);
+                                                Console.ResetColor();
+                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                Console.Write(" - ");
+                                                Console.WriteLine(MonsterAtk);
+                                                Console.ResetColor();
+                                                Console.WriteLine();
+
+                                                Console.ForegroundColor = ConsoleColor.Blue;
+                                                Console.Write(Druid);
+                                                Console.ResetColor();
+                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                Console.Write(" - ");
+                                                Console.WriteLine(MonsterAtk);
+                                                Console.ResetColor();
+                                                Console.WriteLine();
+
+                                                MageHP = MageHP + ((MonsterAtk * MageDef / Hundred) - MonsterAtk);
+                                                if (MageHP <= 0)
+                                                {
+                                                    CharactersAlive = 3;
+                                                }
+                                                ArcherHP = ArcherHP + ((MonsterAtk * ArcherDef / Hundred) - MonsterAtk);
+                                                if (ArcherHP <= 0)
+                                                {
+                                                    CharactersAlive = 2;
+                                                }
+                                                DruidHP = DruidHP + ((MonsterAtk * DruidDef / Hundred) - MonsterAtk);
+                                                if (DruidHP <= 0)
+                                                {
+                                                    CharactersAlive = 1;
+                                                }
+                                                BarbarHP = BarbarHP + ((MonsterAtk * BarbarDef / Hundred) - MonsterAtk);
+                                                if (BarbarHP <= 0)
+                                                {
+                                                    CharactersAlive = 0;
+                                                }
+                                                round++;
+                                                CharacterDone = true;
+                                                battletries = 3;
+                                            }
+                                        } while (CharactersAlive > 0 && !CharacterDone);
+                                    }
+                                    if (MonsterHP > 0)
+                                    {
+                                        Console.WriteLine(NextRound);
+                                        Console.ReadLine();
+                                        Console.Clear();
+                                    }
+                                    else
+                                    {
+                                        MonsterDead = true;
+                                    }
+                                }
+                            } while (battletries > 0 && CharactersAlive > 0 && (!MonsterDead));
+                            if (battletries == 0)
+                            {
+                                Console.WriteLine(BattleFail);
+                            }
+                            if (CharactersAlive == 0)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.Write(Defeat);
+                                Console.ResetColor();
+                                Console.WriteLine(DefeatText);
+                                Console.WriteLine();
+                            }
+                            if (MonsterHP <= 0)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.Write(Victory);
+                                Console.ResetColor();
+                                Console.WriteLine(VictoryText);
+                                Console.WriteLine();
+                            }
+                        }
+                    }
+                }
+            } while (Menutries > 0 && !LeaveMenu);
+            if (Menutries == 0)
+            {
+                Console.WriteLine(MenuOutOftries);
+            }
