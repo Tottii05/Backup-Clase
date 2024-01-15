@@ -1,0 +1,32 @@
+<script>
+    const Input = "Escribe una palabra para dividir las vocales de las consonantes";
+    let word;
+    let finalVowels;
+    let finalConsonants;
+    word = prompt(Input);
+    finalVowels = StringVowels(word);
+    finalConsonants = StringConsonants(word);
+    console.log(finalVowels);
+    console.log(finalConsonants);
+
+    function StringVowels(word) {
+        let vowels = "";
+        for (let char of word.toLowerCase()){
+            if (char == "a" || char == "e" || char == "i" || char == "o" || char == "u") {
+                vowels += char;
+            }
+        }
+        return vowels;
+    }
+
+    function StringConsonants(word) {
+        let consonats = "";
+        for (let char of word.toLowerCase()){
+            if (char != "a" && char != "e" && char != "i" && char != "o" && char != "u" && char != " ") {
+                consonats += char;
+            }
+        }
+        return consonats;
+    }
+
+</script>

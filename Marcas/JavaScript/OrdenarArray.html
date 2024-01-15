@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenar</title>
+</head>
+<body>
+    <script>
+        let ordenDatos = ["Rodriguez", "8", 9, '5', 4, 'Clara'];
+        let suma = 0;
+        let divisor = 0;
+    
+        function CalcularMedia() {
+
+            for (let i of ordenDatos) {
+                if (typeof i === 'number') {
+                    suma += i;
+                    divisor++;
+                }
+            }
+        }
+
+        function OrdenarDatos() {
+            ordenDatos.unshift(ordenDatos.pop());
+            ordenDatos.push(suma / divisor)
+            console.log(ordenDatos);
+        }
+    
+        CalcularMedia();
+        OrdenarDatos();
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z Haters</title>
+</head>
+<body>
+    <script>
+        let filterWords = ["Bob", "Alex", "Zoello"];
+
+        function ZHaters(){
+            for (let i = 0; i < filterWords.length; i++){
+                if (filterWords[i].startsWith("Z")){
+                    filterWords.splice(i,1)
+                }
+            }
+
+            console.log(filterWords);
+        }
+
+        ZHaters();
+    </script>
+</body>
+</html>

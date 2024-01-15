@@ -1,0 +1,16 @@
+<script>
+    const M07True = "Sí toca m07";
+    const M07False = "No toca m07";
+    let fecha = new Date();
+    let day = fecha.getDay();
+    let answer = m07Checker(day);
+    let hour = fecha.getHours();
+    console.log(answer == true ? M07True : M07False);
+
+    function m07Checker(day,hour){
+        day +=1;
+        if (day == 3){
+            if (hour >=9)
+        }
+    }
+</script>
