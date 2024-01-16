@@ -1,17 +1,20 @@
 ﻿using System;
+using System.Numerics;
 using Characters;
+using Control;
 namespace GameProject
 {
     class VicenteTomasCode
     {
         static void Main(string[] args)
         {
-            /* Constantes para el menú de inicio */
+            /* Constantes para los menús de inicio */
             const string Menu = "Que querés hacer? | 0 - Salir  1 - Jugar |";
-            const string MenuWrongChoice = "Elegiste un valor no permitido prueba otra vez, te quedan estos intentos: ";
-            const string MenuOutOftries = "Te quedaste sin intentos en un menú, madre mía...";
-            const string Bye = "Hasta pronto! :D ";
-            const string Play = "Perfecto, vamos a jugar!";
+            const string Difficulty = "Elige la dificultad del juego | 0 - Fácil 1 - Difícil - 2 - Custom - 3 - Random|";
+            const string EasyMode = "Has elegido la dificultad fácil, tienes las máximas stats posibles";
+            const string HardMode = "Has elegido la dificultad difícil, tienes las mínimas stats posibles";
+            const string CustomMode = "Has elegido la dificultad custom, puedes elegir las stats";
+            const string RandomMode = "Has elegido la dificultad random, stats randooom!!";
 
             /* Constantes para la creación de personajes */
             const string HpStat = "Introduce el valor de la vida";
@@ -19,14 +22,14 @@ namespace GameProject
             const string DefStat = "Introduce el valor de la defensa";
             const string WrongNum = "Has puesto un valor fuera del rango, ";
             const string TryAgain = "prueba otra vez:";
-            const string StatsFail = "Has fallado 3 veces creando la stat y se te ha restado 1 a tus intentos para crear el personaje, te quedan: ";
+            const string StatsFail = "Has fallado 3 veces creando la stat y se te ha asignado los valores mínimos de la stat";
             const string StatConfirmation = "La stat ha sido creada ";
             const string Correctly = "CORRECTAMENTE";
             const string triesIndicator = "Te quedan estos intentos para crear la stat: ";
             const string CharacterConfirmation = "El personaje ha sido creado correctamente";
             const string CharacterFail = "Te has quedado sin intentos para crear el personaje";
             const string CharacterIntroductionM = "Estás creando al ";
-            const string CharacterIntroductionF = "Estás creando a la ";
+            const string CharacterIntroductionF = "Estás creando a la ";S
             const string Archer = "ARQUERA ";
             const string Barbar = "BÁRBARO ";
             const string Mage = "MAGA ";
@@ -67,7 +70,7 @@ namespace GameProject
             const int Hundred = 100;
 
             // Constantes para la arquera //
-            const int ArcherHpMin = 1500, ArcherHpMax = 2000, ArcherAtkMin = 180, ArcherAtkMax = 300, ArcherDefMin = 25, ArcherDefMax = 40; ;
+            const int ArcherHpMin = 1500, ArcherHpMax = 2000, ArcherAtkMin = 180, ArcherAtkMax = 300, ArcherDefMin = 25, ArcherDefMax = 40;
 
             // Constantes para el bárbaro //
             const int BarbarHpMin = 3000, BarbarHpMax = 3750, BarbarAtkMin = 150, BarbarAtkMax = 250, BarbarDefMin = 35, BarbarDefMax = 45;
@@ -83,11 +86,12 @@ namespace GameProject
 
             /* Variables para la creación de personaje y estadísticas */
             int tries = 3, globalTries;
-            Boolean StatCreated = false, CharacterCreated = false, AllCharacterCreated = false;
+            bool StatCreated = false, CharacterCreated = false, AllCharacterCreated = false;
 
-            /* Variables para el menú */
-            int MenuChoice, Menutries = 3;
-            bool LeaveMenu = false;
+            /* Variables para los menús */
+            int menuChoice, menuTries = 3;
+            int difficultyChoice;
+            bool leaveMenu = false;
 
             /* Variables sobre las estadísticcas del personaje */
             // Estadísticas de la arquera //
@@ -110,88 +114,62 @@ namespace GameProject
             int battletries = 3, CharactersAlive = 4, round = 1, roundsChoice, stunRounds = 0, stunCD = 0, heavyArmorRounds = 0, heavyArmorCD = 0, MageCD = 0, DruidCD = 0;
 
             ///////////             MENÚ INICIAL              ///////////
-            /*
             do
             {
                 Console.WriteLine(Menu);
-                MenuChoice = Convert.ToInt32(Console.ReadLine());
-                if (MenuChoice != 0 && MenuChoice != 1)
+                menuChoice = Convert.ToInt32(Console.ReadLine());
+                leaveMenu = Check.MenuChoiceInput(menuChoice, ref menuTries);
+                Check.MenuTriesLeft(menuTries, menuChoice, ref leaveMenu);
+            } while (!leaveMenu);
+            if (menuChoice == 1)
+            {
+                Console.WriteLine(Difficulty);
+                difficultyChoice = Convert.ToInt32(Console.ReadLine());
+                switch (difficultyChoice)
                 {
-                    Menutries--;
-                    Console.WriteLine(MenuWrongChoice + Menutries);
-                }
-                else if (MenuChoice == 0)
-                {
-                    Console.WriteLine(Bye);
-                    LeaveMenu = true;
-                }
-                else
-                {*/
-                    Console.WriteLine(Play);
-                    globalTries = 3;
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write(CharacterIntroductionF);
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine(Archer);
-                    Console.ResetColor();
-                    Console.WriteLine();
-
-                    ///////////             CREACIÓN DE LA ARQUERA              ///////////
-                    do
-                    {
+                    case 0:
+                        Console.WriteLine(EasyMode);
+                        Create.MaxArcherStats(ref ArcherHP, ref ArcherAtk, ref ArcherDef);
+                        break;
+                    case 1:
+                        Console.WriteLine(HardMode);
+                        Create.MinArcherStats(ref ArcherHP, ref ArcherAtk, ref ArcherAtk);
+                        break;
+                    case 2:
+                        Console.WriteLine(CustomMode);
                         do
                         {
-                            Console.WriteLine(HpStat + "[" + ArcherHpMin + "-" + ArcherHpMax + "]");
-                            ArcherHP = Convert.ToInt32(Console.ReadLine());
-                            OriginalArcherHP = ArcherHP;
-                            
-
-                            StatCreated = Create.ArcherHp(tries, StatCreated, globalTries, ArcherHP);
-                            tries--;
-                            if (tries == 0)
+                            do
                             {
-                                Create.NoTriesLeft(globalTries);
-                            }
-                        } while (!StatCreated && globalTries > 0 && tries > 0);
-                        if (StatCreated)
-                        {
-                            StatCreated = false;
-                            tries = 3;
+                                Console.WriteLine(HpStat + "[" + ArcherHpMin + "-" + ArcherHpMax + "]");
+                                ArcherHP = Convert.ToInt32(Console.ReadLine());
+                                OriginalArcherHP = ArcherHP;
+                                Create.ArcherHp(ref tries, ref StatCreated, ArcherHP);
+                                Check.TriesLeft(tries, ArcherHP, ArcherHpMin, ref StatCreated);
+                            } while (!StatCreated);
                             do
                             {
                                 Console.WriteLine(AtkStat + "[" + ArcherAtkMin + "-" + ArcherAtkMax + "]");
                                 ArcherAtk = Convert.ToInt32(Console.ReadLine());
-
-                                StatCreated = Create.ArcherAtk(tries, StatCreated, globalTries, ArcherAtk);
-                                if (tries == 0)
-                                {
-                                    Create.NoTriesLeft(globalTries);
-                                }
-                            } while (!StatCreated && globalTries > 0 && tries > 0);
-                        }
-                        if (StatCreated)
-                        {
-                            StatCreated = false;
-                            tries = 3;
+                                Create.ArcherAtk(ref tries, ref StatCreated, ArcherAtk);
+                                Check.TriesLeft(tries, ArcherAtk, ArcherAtkMin, ref StatCreated);
+                            } while (!StatCreated);
                             do
                             {
                                 Console.WriteLine(DefStat + "[" + ArcherDefMin + "-" + ArcherDefMax + "]");
                                 ArcherDef = Convert.ToInt32(Console.ReadLine());
                                 OriginalArcherDef = ArcherDef;
-
-                                StatCreated = Create.ArcherDef(tries, StatCreated, globalTries, ArcherDef);
-                                if (tries == 0)
-                                {
-                                    Create.NoTriesLeft(globalTries);
-                                }
-                            } while (!StatCreated && globalTries > 0 && tries > 0);
-                        }
-                        CharacterCreated = true;
-                    } while ((!CharacterCreated) && globalTries > 0);
+                                Create.ArcherDef(ref tries, ref StatCreated, ArcherHP, ref CharacterCreated);
+                                Check.TriesLeft(tries, ArcherDef, ArcherDefMin, ref StatCreated);
+                            } while (!StatCreated);
+                        } while(!CharacterCreated);
+                        break;
+                    case 3:
+                        Console.WriteLine(RandomMode);
+                        Create.RandArcherStats(ref ArcherHP, ref ArcherAtk, ref ArcherDef);
+                        break;
                 }
             }
         }
-/*
     }
 }
-*/

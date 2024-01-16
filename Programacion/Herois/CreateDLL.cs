@@ -2,7 +2,7 @@
 {
     public class Create
     {
-        public static bool ArcherHp(int tries, bool StatCreated, int globalTries, float ArcherHP)
+        public static void ArcherHp(ref int tries, ref bool StatCreated, float ArcherHP)
         {
             const string WrongNum = "Has puesto un valor fuera del rango, ";
             const string TryAgain = "prueba otra vez:";
@@ -21,8 +21,7 @@
                 Console.Write(Correctly);
                 Console.ResetColor();
                 Console.WriteLine();
-
-                return StatCreated = true;
+                StatCreated = true;
             }
             else
             {
@@ -32,17 +31,31 @@
                 Console.WriteLine();
                 Console.ResetColor();
                 Console.WriteLine();
-                tries = ReturnTries(tries);
+                tries--;
                 Console.Write(triesIndicator);
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine(tries);
                 Console.ResetColor();
-
-
-                return StatCreated = false;
+                StatCreated = false;
             }
         }
-        public static bool ArcherAtk(int tries, bool StatCreated, int globalTries, float ArcherAtk)
+        public static float ArcherMinHp(ref float ArcherHP)
+        {
+            const int ArcherHpMin = 1500;
+            return ArcherHP = ArcherHpMin;
+        }
+        public static float ArcherMaxHp(ref float ArcherHP)
+        {
+            const int ArcherHpMax = 2000;
+            return ArcherHP = ArcherHpMax;
+        }
+        public static float ArcherRandHp(ref float ArcherHP)
+        {
+            const int ArcherHpMin = 1500, ArcherHpMax = 2000;
+            Random random = new Random();
+            return ArcherHP = random.Next(ArcherHpMin, ArcherHpMax + 1);
+        }
+        public static void ArcherAtk(ref int tries, ref bool StatCreated, float ArcherAtk)
         {
             const string WrongNum = "Has puesto un valor fuera del rango, ";
             const string TryAgain = "prueba otra vez:";
@@ -61,8 +74,7 @@
                 Console.Write(Correctly);
                 Console.ResetColor();
                 Console.WriteLine();
-
-                return StatCreated = true;
+                StatCreated = true;
             }
             else
             {
@@ -77,12 +89,26 @@
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine(tries);
                 Console.ResetColor();
-
-                return StatCreated = false;
+                StatCreated = false;
             }
         }
-
-        public static bool ArcherDef(int tries, bool StatCreated, int globalTries, float ArcherDef)
+        public static float ArcherMinAtk(ref float ArcherAtk)
+        {
+            const int ArcherAtkMin = 180;
+            return ArcherAtk = ArcherAtkMin;
+        }
+        public static float ArcherMaxAtk(ref float ArcherAtk)
+        {
+            const int ArcherAtkMax = 300;
+            return ArcherAtk = ArcherAtkMax;
+        }
+        public static float ArcherRandAtk(ref float ArcherAtk)
+        {
+            const int ArcherAtkMin = 180, ArcherAtkMax = 300;
+            Random random = new Random();
+            return ArcherAtk = random.Next(ArcherAtkMin, ArcherAtkMax + 1);
+        }
+        public static void ArcherDef(ref int tries, ref bool StatCreated, float ArcherDef, ref bool CharacterCreated)
         {
             const string DefStat = "Introduce el valor de la defensa";
             const string WrongNum = "Has puesto un valor fuera del rango, ";
@@ -104,8 +130,8 @@
                 Console.Write(Correctly);
                 Console.ResetColor();
                 Console.WriteLine();
-
-                return StatCreated = true;
+                StatCreated = true;
+                CharacterCreated = true;
             }
             else
             {
@@ -120,103 +146,42 @@
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine(tries);
                 Console.ResetColor();
-
-                return StatCreated = false;
+                StatCreated = false;
             }
         }
-        public static int ReturnTries(int tries)
+        public static float ArcherMinDef(ref float ArcherDef)
         {
-            return tries - 1;
+            const int ArcherDefMin = 25;
+            return ArcherDef = ArcherDefMin;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public static int NoTriesLeft(int globalTries)
+        public static float ArcherMaxDef(ref float ArcherDef)
         {
-            const string StatsFail = "Has fallado 3 veces creando la stat y se te ha restado 1 a tus intentos para crear el personaje, te quedan: ";
-
-            Console.WriteLine(StatsFail + globalTries);
-            Console.WriteLine();
-            return --globalTries;
+            const int ArcherDefMax = 40;
+            return ArcherDef = ArcherDefMax;
+        }
+        public static float ArcherRandDef(ref float ArcherDef)
+        {
+            const int ArcherDefMin = 25, ArcherDefMax = 40;
+            Random random = new Random();
+            return ArcherDef = random.Next(ArcherDefMin, ArcherDefMax + 1);
+        }
+        public static void MinArcherStats(ref float ArcherHP, ref float ArcherAtk, ref float ArcherDef)
+        {
+            ArcherHP = ArcherMinHp(ref ArcherHP);
+            ArcherAtk = ArcherMinAtk(ref ArcherAtk);
+            ArcherDef = ArcherMinDef(ref ArcherDef);
+        }
+        public static void MaxArcherStats(ref float ArcherHP, ref float ArcherAtk, ref float ArcherDef)
+        {
+            ArcherHP = ArcherMaxHp(ref ArcherHP);
+            ArcherAtk = ArcherMaxAtk(ref ArcherAtk);
+            ArcherDef = ArcherMaxDef(ref ArcherDef);
+        }
+        public static void RandArcherStats(ref float ArcherHP, ref float ArcherAtk, ref float ArcherDef)
+        {
+            ArcherHP = ArcherRandHp(ref ArcherHP);
+            ArcherAtk = ArcherRandAtk(ref ArcherAtk);
+            ArcherDef = ArcherRandDef(ref ArcherDef);
         }
     }
 }
-
-
