@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="Scripts/script.js"></script>
+    <link rel="stylesheet" href="VicenteTomas.css">
     <title>Contreseña</title>
 </head>
-<body onload="init()">
-    
+<body>
+    <div>
+        <form>
+            <fieldset id="campo">
+                <h1> PASSWORD CHECKER </h1>
+                <h2> Aquí se comprobará si tu contraseña es segura o no</h2>
+                <p> Introduce tu contreseña</p>
+                <input type="password" id="pass" placeholder="Pon aquí tu contraseña">
+                <input onclick = "init()" type="button" value="Confirmar">
+            </fieldset>
+          </form>
+    </div>
 </body>
 </html>

@@ -17,9 +17,9 @@ namespace GameProject
             const string RandomMode = "Has elegido la dificultad random, stats randooom!!";
 
             /* Constantes para la creación de personajes */
-            const string HpStat = "Introduce el valor de la vida";
-            const string AtkStat = "Introduce el valor del ataque";
-            const string DefStat = "Introduce el valor de la defensa";
+            const string HpStat = "Introduce el valor de la vida [ {0} - {1} ]";
+            const string AtkStat = "Introduce el valor del ataque [ {0} - {1} ]";
+            const string DefStat = "Introduce el valor de la defensa [ {0} - {1} ]";
             const string WrongNum = "Has puesto un valor fuera del rango, ";
             const string TryAgain = "prueba otra vez:";
             const string StatsFail = "Has fallado 3 veces creando la stat y se te ha asignado los valores mínimos de la stat";
@@ -136,12 +136,12 @@ namespace GameProject
                         Create.MinArcherStats(ref ArcherHP, ref ArcherAtk, ref ArcherAtk);
                         break;
                     case 2:
-                        Console.WriteLine(CustomMode);
+                        Console.WriteLine(CustomMode);                      
                         do
                         {
                             do
                             {
-                                Console.WriteLine(HpStat + "[" + ArcherHpMin + "-" + ArcherHpMax + "]");
+                                Console.WriteLine(HpStat, ArcherHpMin, ArcherHpMax);
                                 ArcherHP = Convert.ToInt32(Console.ReadLine());
                                 OriginalArcherHP = ArcherHP;
                                 Create.ArcherHp(ref tries, ref StatCreated, ArcherHP);
@@ -149,14 +149,14 @@ namespace GameProject
                             } while (!StatCreated);
                             do
                             {
-                                Console.WriteLine(AtkStat + "[" + ArcherAtkMin + "-" + ArcherAtkMax + "]");
+                                Console.WriteLine(AtkStat, ArcherAtkMin, ArcherAtkMax);
                                 ArcherAtk = Convert.ToInt32(Console.ReadLine());
                                 Create.ArcherAtk(ref tries, ref StatCreated, ArcherAtk);
                                 Check.TriesLeft(tries, ArcherAtk, ArcherAtkMin, ref StatCreated);
                             } while (!StatCreated);
                             do
                             {
-                                Console.WriteLine(DefStat + "[" + ArcherDefMin + "-" + ArcherDefMax + "]");
+                                Console.WriteLine(DefStat, ArcherDefMin, ArcherDefMax);
                                 ArcherDef = Convert.ToInt32(Console.ReadLine());
                                 OriginalArcherDef = ArcherDef;
                                 Create.ArcherDef(ref tries, ref StatCreated, ArcherHP, ref CharacterCreated);

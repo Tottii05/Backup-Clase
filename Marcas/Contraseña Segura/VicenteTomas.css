@@ -1,0 +1,25 @@
+body{
+    width: 59%;
+    display: flex;
+    justify-content: center;
+    margin-left: 20%;
+}
+
+div {
+    margin-top: 20%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+fieldset {
+    border-radius: 40px;
+}
+
+p {
+    margin-bottom: 1px;
+}
+
+::placeholder {
+    text-align: center;
+}
