@@ -17,14 +17,7 @@ function init(){
     password = document.getElementById("pass").value;
 
     console.log(password);
-
-    console.log(lengthCheck(password, lengthOk) ? OK : KO);
-    
-    let contenedor = document.getElementById("campo");
-    let result = document.createElement("p");
-    let numContent = document.createTextNode(lengthCheck(password, lengthOk) ? OK : KO);
-    result.appendChild(numContent);
-    contenedor.appendChild(result);
+    lengthCheck(password, lengthOk);
 
     console.log(mayusCheck(password, mayusOk) ? OK : KO);
 
@@ -42,9 +35,13 @@ function init(){
 function lengthCheck(password, lengthOk) {
 
     if (password.length >= MINLENGTH && password.length <= MAXLENGTH) {
+        document.getElementById("longli").style.color="green";
+        document.getElementById("longli").innerHTML+="&#10004;";
         return lengthOk = true;
     }
     else {
+        document.getElementById("longli").style.color="red";
+        document.getElementById("longli").innerHTML+="&#10006;";
         return lengthOk = false;
     }
 }
@@ -102,4 +99,10 @@ function specialCharCheck (password){
         }
     }
     return false;
+}
+
+function changeColor(id){
+    if (true) {
+        document.getElementById(id).style.color="green"
+    }
 }
