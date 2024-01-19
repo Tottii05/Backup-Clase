@@ -15,16 +15,19 @@
                 <h2> Aquí se comprobará si tu contraseña es segura o no</h2>
                 <p> Introduce tu contreseña</p>
                 <input type="password" id="pass" placeholder="Pon aquí tu contraseña">
+                <img onclick = "showHidePass()"id="mostrar" src="ojocerrado.png">
                 <input onclick = "init()" type="button" value="Confirmar">
+                <input onclick = "window.location.reload()" type="button" value="Otra contraseña">
                 <h3> Requerimientos para ser segura: </h3>
                 <footer>
                     <ul>
                         <li id="longli"> Longitud entre 8 y 20 carácteres </li>
                         <li id="mayusli"> Contener mínimo 1 mayúscula </li>
-                        <li id="minli"> Contener mínimo 2 minúsculas </li>
+                        <li id="minusli"> Contener mínimo 2 minúsculas </li>
+                        <li id="numli"> Contener mínimo 1 número </li>
                         <li id="sameli"> No contener 3 letras iguales </li>
                         <li id="spaceli"> No contener espacios </li>
-                        <li id="specialli"> No conener carácteres especiales </li>
+                        <li id="specialli"> Conener carácteres especiales </li>
                     </ul>
                 </footer>
             </fieldset>
