@@ -23,4 +23,7 @@ function init(){
 
     let bluelabel = document.getElementById("input2");
     bluelabel.style.backgroundColor="lightblue";
+
+    let nuevoDiv = documetn.createElemnt("div");
+    nuevoDiv.
 }
