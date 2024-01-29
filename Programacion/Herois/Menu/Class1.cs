@@ -4,6 +4,7 @@ namespace Control
 {
     public class Check
     {
+        public const string StatsFail = "Has fallado 3 veces creando la stat y se te ha asignado los valores mínimos de la stat";
         public static bool MenuChoiceInput(int menuChoice, ref int menuTries)
         {
             const string MenuWrongChoice = "Elegiste un valor no permitido prueba otra vez, te quedan estos intentos: {0} ";
@@ -22,38 +23,30 @@ namespace Control
             }
             else
             {
-                Console.WriteLine(MenuWrongChoice, menuTries-1);
+                Console.WriteLine(MenuWrongChoice, menuTries - 1);
                 menuTries--;
-                return false;
+                return menuTries > 0;
             }
         }
-
-        public static bool MenuTriesLeft(int menuTries, int menuChoice, ref bool leaveMenu)
+        public static bool MenuNoTries()
         {
             const string MenuOutOftries = "Te quedaste sin intentos en un menú, madre mía...";
-            if (menuChoice == 0)
-            {
-                return leaveMenu = true;
-            }
-            else
-            {
-                if (menuTries == 0)
-                {
-                    Console.WriteLine(MenuOutOftries);
-                    return leaveMenu = true;
-                }
-                else
-                {
-                    return leaveMenu = false;
-                }
-            }
+
+            Console.WriteLine(MenuOutOftries);
+
+            return true;
         }
 
-        public static void TriesLeft(int tries, float statValue, int minValue, ref bool StatCreated)
+        public static void CreateNoTries(int tries, ref bool StatCreated, ref float valueHP, int MinHP)
         {
+            if (valueHP > 0)
+            {
+                StatCreated = true;
+            }
             if (tries == 0)
             {
-                statValue = minValue;
+                Console.WriteLine(StatsFail);
+                valueHP = MinHP;
                 StatCreated = true;
             }
         }
