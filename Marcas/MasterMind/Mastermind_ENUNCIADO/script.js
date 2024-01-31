@@ -10,6 +10,7 @@ const BLACK = "black";
 //Declaración de variables globales.
 const master = [];
 const userCombi = [];
+const finalResult = [];
 var intento = 0;
 var aciertos = 0;
 
@@ -18,14 +19,19 @@ function init() {
     for (let i = 0; i < MAX_COMBI_COLORES; i++) {
         master[i] = COLORS[Math.floor(Math.random() * COLORS.length)]
     }
+    console.log("master es:");
     console.log(master)
     //2. Crea todas las filas según el número de intentos.
     for (let i = 0; i < MAX_COMBI_COLORES; i++) {
         let nuevoDiv = document.createElement("div");
-        nuevoDiv.className = "UserInputColor";
+        nuevoDiv.className = "UserInputColor" + i;
         nuevoDiv.innerHTML = ROW_RESULT;
         document.getElementById("Result").appendChild(nuevoDiv);
-    }
+        let elementos = document.getElementsByClassName("UserInputColor" + i);
+        for (let j = 0; j < elementos.length; j++) {
+            elementos[j].style.width = "80%";
+        }
+    }    
 }
 
 
@@ -34,16 +40,25 @@ function init() {
 introducido el usuario.
 Informamos al usuario del resultado y del número de intentos que lleva*/
 function Comprobar() {
-    for (let i = 0; i < MAX_COMBI_COLORES; i++) {
-        for (let j = 0; j < MAX_COMBI_COLORES; j++) {
-            if (master[i] == userCombi[j]) {
-                document.getElementsByClassName("cel flex")[j].style.backgroundColor = userCombi[j];
-            }
+    const finalResult = [];
+
+    for (let i = 0; i < userCombi.length; i++){
+        if (userCombi[i] === master[i]){
+            finalResult.push(BLACK);
+        }
+        else if (master.includes(userCombi[i])){
+            finalResult.push(WHITE);
+        }
+        else {
+            finalResult.push(GREY);
         }
     }
-    
-    
+
+    console.log("Los resultados son:");
+    console.log(finalResult);
+    pintarResultados("white");
 }
+
 
 /** Procedimiento que se ejecuta cada vez que el usuario selecciona un color, hasta el número máximo de colores permitidos en la combinación. */
 function añadeColor(color) {
@@ -51,11 +66,14 @@ function añadeColor(color) {
         userCombi.push(color);
         document.getElementById("combiText").value = userCombi.join("-");
         document.getElementById("combiText").style.textAlign = "center";
+        console.log("user combi es:");
         console.log(userCombi);
     }
 }
 
-
+function pintarResultados() {
+    let fila = document.querySelectorAll(".cel.flex");
+}
 
 /** Template con el código HTML que corresponde a cada fila de juego/intento. */
 const ROW_RESULT = `<div class="rowResult w100 flex wrap">
