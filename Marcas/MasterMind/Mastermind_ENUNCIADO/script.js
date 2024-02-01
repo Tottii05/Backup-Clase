@@ -71,8 +71,12 @@ function añadeColor(color) {
     }
 }
 
-function pintarResultados() {
+function pintarResultados(color) {
     let fila = document.querySelectorAll(".cel.flex");
+    let cuadrado = document.querySelectorAll(".celUserCombi.flex");
+    for (let elemnto of cuadrado){
+        elemnto.style.color = "red";
+    }
 }
 
 /** Template con el código HTML que corresponde a cada fila de juego/intento. */

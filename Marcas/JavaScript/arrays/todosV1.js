@@ -1,6 +1,9 @@
+function init(){
+    console.log("array1 = [hola, 2, 3.5, 2] " + checkString(["hola", 2, 3.5, "2"]));
+    console.log("array2 = [hola, que, tal] " + checkString(["hola", "que", "tal"]));
+}
 
-
-function init(array){
+function checkString(array){
     for (let elemento of array) {
         if (typeof elemento !== "string"){
             return false;
@@ -8,5 +11,3 @@ function init(array){
     }
     return true;
 }
-console.log("array1 = [hola, 2, 3.5, 2] " + init(["hola", 2, 3.5, "2"]));
-console.log("array2 = [hola, que, tal] " + init(["hola", "que", "tal"]));
