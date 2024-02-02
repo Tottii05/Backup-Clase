@@ -6,6 +6,11 @@ main{
     margin: 0 auto;
 }
 
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .flex{
     display: flex;
 }
@@ -87,6 +92,7 @@ main{
     justify-content: center;
     font-size: 2.25em;
     align-items: center;
+    border: 1px solid grey;
 }
 
 .celUserCombi{
@@ -168,5 +174,6 @@ button:hover, button:focus{
     background-color: #1aa1f075;    
     cursor: pointer;
 }
+
 
 

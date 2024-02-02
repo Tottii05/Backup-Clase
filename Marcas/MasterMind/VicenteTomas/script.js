@@ -22,16 +22,16 @@ function init() {
     console.log("master es:");
     console.log(master)
     //2. Crea todas las filas según el número de intentos.
-    for (let i = 0; i < MAX_COMBI_COLORES; i++) {
+    for (let i = 0; i < MAX_INTENTOS; i++) {
         let nuevoDiv = document.createElement("div");
-        nuevoDiv.className = "UserInputColor" + i;
+        nuevoDiv.className = "UserInputColor";
         nuevoDiv.innerHTML = ROW_RESULT;
         document.getElementById("Result").appendChild(nuevoDiv);
-        let elementos = document.getElementsByClassName("UserInputColor" + i);
+        let elementos = document.getElementsByClassName("UserInputColor");
         for (let j = 0; j < elementos.length; j++) {
             elementos[j].style.width = "80%";
         }
-    }    
+    }   
 }
 
 
@@ -40,8 +40,7 @@ function init() {
 introducido el usuario.
 Informamos al usuario del resultado y del número de intentos que lleva*/
 function Comprobar() {
-    const finalResult = [];
-
+    const WRONGLENGTH = "Debes colocar 4 colores para comprobar tu respuesta";
     for (let i = 0; i < userCombi.length; i++){
         if (userCombi[i] === master[i]){
             finalResult.push(BLACK);
@@ -56,7 +55,15 @@ function Comprobar() {
 
     console.log("Los resultados son:");
     console.log(finalResult);
-    pintarResultados("white");
+    if (userCombi.length == 4){
+        pintarResultados(finalResult);
+        confirmarVictoria(finalResult);
+        limpiarUserImput(userCombi);
+        confirmarIntentos(intento);
+    }
+    else {
+        alert(WRONGLENGTH);
+    }
 }
 
 
@@ -69,17 +76,65 @@ function añadeColor(color) {
         console.log("user combi es:");
         console.log(userCombi);
     }
-}
-
-function pintarResultados(color) {
-    let fila = document.querySelectorAll(".cel.flex");
-    let cuadrado = document.querySelectorAll(".celUserCombi.flex");
-    for (let elemnto of cuadrado){
-        elemnto.style.color = "red";
+    let cuadradosInput = document.getElementsByClassName("celUserCombi flex");
+    for (let i = 0; i < MAX_COMBI_COLORES; i++){
+        cuadradosInput[i+(4*intento)].style.backgroundColor=userCombi[i];
     }
 }
 
-/** Template con el código HTML que corresponde a cada fila de juego/intento. */
+function pintarResultados(finalResult) {
+    let bolas = document.getElementsByClassName("cercleResult flex");
+    let cuadradosFinales = document.getElementsByClassName("cel flex");
+    let cuadradosInput = document.getElementsByClassName("celUserCombi flex");
+
+    for (let i = 0; i < MAX_COMBI_COLORES; i++){
+        bolas[i+(4*intento)].style.backgroundColor=finalResult[i];
+        cuadradosInput[i+(4*intento)].style.backgroundColor=userCombi[i];
+        if (finalResult[i] == BLACK){
+            cuadradosFinales[i].style.backgroundColor=master[i];
+        }
+    }
+    intento++;
+}
+
+function limpiarUserImput(userCombi){
+    for (let i = userCombi.length; i> 0; i--){
+        userCombi.pop();
+    }
+    document.getElementById("combiText").value="";
+}
+
+function confirmarVictoria(finalResult){
+    aciertos = 0;
+    let textInfo = document.getElementById("info");
+    for (elementos of finalResult){
+        if (elementos == BLACK){
+            aciertos++;
+        }
+    }
+    if (aciertos == 4){
+        textInfo.innerText = "¡¡¡VICTORIAAA!!!";
+        textInfo.style.textAlign="center";
+    }
+    else {
+        textInfo.innerText = `Casi, vuelve a intentarlo, te quedan ${MAX_INTENTOS-intento}`;
+        textInfo.style.textAlign="center";
+    }
+}
+
+function confirmarIntentos(intento){
+    let textInfo = document.getElementById("info");
+    if (intento == 10){
+        alert("Has perdido");
+        textInfo.innerText = "Te quedaste sin intentos";
+    }
+}
+
+function confirmarLongitud(userCombi){
+    return userCombi.length > 3;
+}
+
+/* Template con el código HTML que corresponde a cada fila de juego/intento. */
 const ROW_RESULT = `<div class="rowResult w100 flex wrap">
     <div class="rowUserCombi w75 flex wrap">
        <div class="w25">
